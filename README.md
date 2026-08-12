@@ -17,8 +17,6 @@
                           /_____/        
 ```
 
-![banner](assets/banner.jpg)
-
 # someone_already_made_it
 
 Most problems already have a tool, a repo, or a company attached. Search and agents return the famous ones. This finds the rest: peers of the big brands, thin-footprint products, low-star GitHub, early-stage stuff that only shows up under "X alternatives."
