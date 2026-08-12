@@ -1,0 +1,34 @@
+[project]
+name = "someone-already-made-it"
+version = "0.1.0"
+description = "Find tools, products, repos, and companies that already solve a problem — with competitive closure so peers of famous brands are not missed."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "someone_already_made_it contributors" }]
+keywords = ["agents", "discovery", "prior-art", "mcp", "search"]
+dependencies = [
+  "mcp>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+someone-already-made-it = "someone_already_made_it.cli:main"
+sami = "someone_already_made_it.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/sisiphamus/someone_already_made_it"
+Repository = "https://github.com/sisiphamus/someone_already_made_it"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/someone_already_made_it"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
