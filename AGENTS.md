@@ -1,30 +1,29 @@
-# Agent instructions — someone_already_made_it
+# Agent notes
 
-You are using **someone_already_made_it** to find whether tools, products, repos, or companies already solve the user's problem.
+Find whether a tool, product, repo, or company already solves the user's problem.
 
-## Required method
+## Flow
 
-1. Call **clarify** (CLI or MCP) and ask the user the returned questions (skip slots already answered).
-2. Call **discover** with filled slots. Keep **competitive closure** enabled unless the user wants a quick consensus-only scan.
-3. Present: strong matches, partial, ghost/low-fame, and the closure peer list.
-4. Never certify absence. Say what was searched.
+1. `sami clarify "..."` or MCP `clarify_problem`. Ask the returned questions if slots are empty.
+2. `sami discover` / `discover_solutions` with job, pain, platform, constraints, tried filled. Leave competitive closure on unless they want consensus only.
+3. Show strong hits, partial, ghost/low-fame, and the closure name list. Never say "nothing exists."
 
-## Competitive closure (always for lists)
+## Category lists
 
-For category enumeration (`list_category` / `sami category`): seed category queries, then for every name found search alternatives/vs/competitors/switched from/better than — until a full round adds zero new names (or budget cap; then say not closed).
+`sami category "vector database"` or `list_category`. Seeds the category, then expands every name (alternatives / vs / competitors) until a full round adds zero or the query budget hits. If budget hit, say the list is open.
 
-## Do not
+## Don't
 
-- Return only SEO “best of 2026” without closure  
-- Invent companies or funding rounds  
-- Skip clarify when the problem is vague (“I need better productivity”)
+- Ship a top-10 listicle as complete
+- Invent funding rounds or products
+- Skip clarify on vague asks
 
-## Commands
+## Quick commands
 
 | Intent | Command |
 |--------|---------|
-| Check backends | `sami doctor` |
+| Backends | `sami doctor` |
 | Questions | `sami clarify "..."` |
-| Full hunt | `sami discover "..." --job ... --pain ...` |
-| Category map | `sami category "vector database"` |
+| Hunt | `sami discover "..." --job ... --pain ...` |
+| Category | `sami category "..."` |
 | Interactive | `sami ask "..."` |
